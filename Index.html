@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <h1 id="roma">Рома черт</h1>
 
     </div>
     <script>
@@ -22,13 +21,26 @@
         // string = string.slice(0, -1)
         // document.getElementById("roma").style.textShadow = string
 
-        for (let index = 0; index < 220; index++) {
+        for (let index = 0; index < window.innerWidth*0.4; index++) {
             let el = document.createElement("h1")
             el.textContent = "Рома черт"
             el.id = "roma"
-            el.style.left = `${Math.floor(Math.random() * (window.innerWidth*0.9 - 0) +0)}px`
-            el.style.top = `${Math.floor(Math.random() * ( window.innerHeight*0.9  - 0) + 0)}px`
-         
+            let x =`${Math.floor(Math.random() * (window.innerWidth*0.9 - 0) +0)}`
+            let y =  `${Math.floor(Math.random() * ( window.innerHeight*0.9  - 0) + 0)}`
+            el.style.left = x + "px"
+            el.style.top = y + "px"
+            let randomColor = Math.floor(Math.random() * (150 - 0) +0)
+
+            if (randomColor<50) {
+                el.style.color = `rgb(10,${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0},${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0})`
+            } else
+            if (randomColor<100) {
+              el.style.color = `rgb(${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0},10,${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0})`
+            } else {
+                el.style.color = `rgb(${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0},${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0},10)`
+            } 
+
+            
             document.body.appendChild(el)
         }
 
