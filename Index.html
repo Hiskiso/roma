@@ -20,8 +20,14 @@
         // }
         // string = string.slice(0, -1)
         // document.getElementById("roma").style.textShadow = string
-
-        for (let index = 0; index < window.innerWidth*0.4; index++) {
+        document.addEventListener("dblclick", function(event){
+   
+        generate()
+    
+});
+function generate() {
+    
+    for (let index = 0; index < window.innerWidth*0.4; index++) {
             let el = document.createElement("h1")
             el.textContent = "Рома черт"
             el.id = "roma"
@@ -32,17 +38,22 @@
             let randomColor = Math.floor(Math.random() * (150 - 0) +0)
 
             if (randomColor<50) {
-                el.style.color = `rgb(10,${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0},${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0})`
+                el.style.color = `rgb(${randomColorG()},${randomColorG()},${randomColorG()})`
             } else
             if (randomColor<100) {
-              el.style.color = `rgb(${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0},10,${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0})`
+              el.style.color = `rgb(${randomColorG()},${randomColorG()},${randomColorG()})`
             } else {
-                el.style.color = `rgb(${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0},${( x - window.innerHeight) / (0 - window.innerHeight) * (255 - 0) + 0},10)`
+                el.style.color = `rgb(${randomColorG()},${randomColorG()},${randomColorG()})`
             } 
 
             
             document.body.appendChild(el)
-        }
+        }   
+}
+function randomColorG() {
+    return Math.floor(Math.random() * (170 - 10) +10)
+}
+generate()
 
     </script>
 </body>
